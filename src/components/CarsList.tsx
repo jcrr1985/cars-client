@@ -38,12 +38,6 @@ export const CarsList = () => {
     fetchCars();
   }, []);
 
-  useEffect(() => {
-    
-  console.log('cars en effect', cars)
-
-  }, [cars]);
-
   const handleViewDetails = (car: CarType) => {
     chooseCar(car);
     const id = car._id;
