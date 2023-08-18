@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import { CarsList } from "../components/CarsList";
-import { jest, expect } from "@jest/globals"; // Importa jest y expect
+import { jest, expect } from "@jest/globals";
 
 
 test("renders cars correctly", () => {
