@@ -10,6 +10,8 @@ interface AddCarProps {
 }
 
 export const AddCar = ({ fetchCars }: AddCarProps) => {
+  const apiUrl = "http://localhost:3001";
+
   type CarType = {
     make: string;
     model: string;
@@ -21,6 +23,7 @@ export const AddCar = ({ fetchCars }: AddCarProps) => {
     price: string;
     id: string;
     filename: string;
+    forSell: string;
   };
 
   const { register, handleSubmit, formState, reset } = useForm<CarType>();
@@ -50,8 +53,9 @@ export const AddCar = ({ fetchCars }: AddCarProps) => {
       formData.append("mileage", data.mileage);
       formData.append("price", data.price);
       formData.append("id", data.id);
+      formData.append("forSell", "true");
 
-      const response = await fetch("https://cars-server-1.onrender.com/cars", {
+      const response = await fetch(`${apiUrl}/cars`, {
         method: "POST",
         body: formData,
       });

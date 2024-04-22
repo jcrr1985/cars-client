@@ -10,5 +10,5 @@ export type CarType = {
   price: string;
   id: string;
   _id: string;
-  forSell: boolean;
+  forSell: string;
 };

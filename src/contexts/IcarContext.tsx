@@ -1,6 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { useState, createContext, ReactNode } from "react";
-
 import { CarType } from "../interfaces/Icars";
 
 export interface CarContextType {
@@ -9,6 +7,7 @@ export interface CarContextType {
   chooseCar: (car: CarType) => void;
   clearChosenCar: () => void;
   SetCarListInCtx: (carList: CarType[]) => void;
+  updateCarInContext: (updatedCar: CarType) => void;
 }
 
 export const CarContext = createContext<CarContextType>({
@@ -23,30 +22,41 @@ export const CarContext = createContext<CarContextType>({
   SetCarListInCtx: function (): void {
     throw new Error("Function not implemented.");
   },
+  updateCarInContext: function (): void {
+    throw new Error("Function not implemented.");
+  },
 });
 
 const CarProvider = ({ children }: { children: ReactNode }) => {
-  const [selectedCar, SetSelectedCar] = useState<CarType | null>(null);
-  const [carListInCtx, SetCarListInCtx] = useState<CarType[]>([]);
+  const [selectedCar, setSelectedCar] = useState<CarType | null>(null);
+  const [carListInCtx, setCarListInCtx] = useState<CarType[]>([]);
 
   const chooseCar = (car: CarType) => {
-    SetSelectedCar(car);
+    setSelectedCar(car);
   };
 
   const clearChosenCar = () => {
-    SetSelectedCar(null);
+    setSelectedCar(null);
   };
 
-  const carContextValue = {
-    selectedCar,
-    chooseCar,
-    clearChosenCar,
-    carListInCtx,
-    SetCarListInCtx,
+  const updateCarInContext = (updatedCar: CarType) => {
+    const updatedCars = carListInCtx.map((car) =>
+      car._id === updatedCar._id ? updatedCar : car
+    );
+    setCarListInCtx(updatedCars);
   };
 
   return (
-    <CarContext.Provider value={carContextValue}>
+    <CarContext.Provider
+      value={{
+        selectedCar,
+        carListInCtx,
+        chooseCar,
+        clearChosenCar,
+        SetCarListInCtx: setCarListInCtx,
+        updateCarInContext,
+      }}
+    >
       {children}
     </CarContext.Provider>
   );

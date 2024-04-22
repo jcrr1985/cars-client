@@ -8,7 +8,9 @@ import { CarContext } from "../contexts/IcarContext";
 import axios from "axios";
 
 export const CarDetail = () => {
-  const { selectedCar, chooseCar } = useContext(CarContext);
+  const apiUrl = "http://localhost:3001";
+  const { selectedCar, chooseCar, updateCarInContext } = useContext(CarContext);
+  console.log("selectedCar", selectedCar);
 
   const navigate = useNavigate();
 
@@ -18,17 +20,23 @@ export const CarDetail = () => {
 
   const updateCarProperty = async (
     property: string,
-    value: string | boolean
+    value: string
   ): Promise<void> => {
+    if (!selectedCar) {
+      alert("no car");
+      return;
+    }
     try {
       if (selectedCar) {
         const updatedCar = { ...selectedCar, [property]: value };
+        console.log("updatedCar", updatedCar);
         const response = await axios.put(
-          `https://cars-server-1.onrender.com/cars/${selectedCar._id}`,
+          `${apiUrl}/cars/${selectedCar._id}`,
           updatedCar
         );
         if (response.status === 200) {
           chooseCar(updatedCar);
+          updateCarInContext(response.data);
         }
       }
     } catch (error) {
@@ -43,44 +51,62 @@ export const CarDetail = () => {
           <div className="medium-img-div">
             <img
               className="medium-img"
-              src={`https://cars-server-1.onrender.com/uploads/${selectedCar.filename}`}
+              src={`${apiUrl}/uploads/${selectedCar.filename}`}
               alt=""
             />
             <p
-              className="year"
+              className="specs"
               style={{
                 background: selectedCar.forSell ? "none" : "orange",
                 borderRadius: "4px",
                 padding: ".5rem",
               }}
             >
-              {selectedCar.forSell ? "" : "On hold"}
+              {selectedCar.forSell === "true" ? "" : "On hold"}
             </p>
           </div>
 
           <div style={{ display: "flex" }}>
             <div className="left">
-              <div>
-                <p className="year" style={{ marginBottom: "0px" }}>
+              <div className="specs-container">
+                <h2 className="" style={{ marginBottom: "0px", marginTop: 0 }}>
                   {selectedCar.make} - {selectedCar.model}
-                </p>
+                </h2>
                 <br />
-                <h3 className="year"> Year</h3>
-                <p className="year"> {selectedCar.year}</p>
+                <div>
+                  <h3 className="specs"> Year</h3>
+                  <p className="specs"> {selectedCar.year}</p>
+                </div>
+                <div>
+                  <h3 className="specs"> Category</h3>
+                  <p className="specs"> {selectedCar.category}</p>
+                </div>
+                <div>
+                  <h3 className="specs"> Color</h3>
+                  <p className="specs"> {selectedCar.color}</p>
+                </div>
+                <div>
+                  <h3 className="specs"> Price</h3>
+                  <p className="specs"> {selectedCar.price}</p>
+                </div>
               </div>
             </div>
           </div>
-          <div className="year-div">
+          <div className="specs-div">
             <button
               className="set-status-button"
               style={{
-                background: selectedCar.forSell ? "orange" : "yellowgreen",
+                background:
+                  selectedCar.forSell === "true" ? "orange" : "yellowgreen",
               }}
               onClick={() =>
-                updateCarProperty("forSell", !selectedCar?.forSell)
+                updateCarProperty(
+                  "forSell",
+                  selectedCar.forSell === "true" ? "false" : "true"
+                )
               }
             >
-              {selectedCar.forSell ? "Hold" : "Sell"}
+              {selectedCar.forSell === "true" ? "Hold" : "Sell"}
             </button>
           </div>
           <div />
