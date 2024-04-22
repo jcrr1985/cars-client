@@ -2,11 +2,10 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/no-floating-promises */
 /* eslint-disable @typescript-eslint/no-misused-promises */
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { CarContext } from "../contexts/IcarContext";
 import axios from "axios";
-import { useState } from "react";
 
 export const CarDetail = () => {
   const { selectedCar, chooseCar } = useContext(CarContext);

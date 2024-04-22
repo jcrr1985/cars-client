@@ -57,7 +57,6 @@ export const AddCar = ({ fetchCars }: AddCarProps) => {
       });
 
       if (response.ok) {
-        const createdCar = await response.json();
         try {
           await fetchCars();
         } catch (error) {
@@ -208,9 +207,7 @@ export const AddCar = ({ fetchCars }: AddCarProps) => {
                 className="form-input"
                 type="text"
                 id="package"
-                {...register("package", {
-
-                })}
+                {...register("package", {})}
               />
               <p>{errors.id && errors.id.message}</p>
             </div>

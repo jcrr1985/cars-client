@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/no-floating-promises */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-  // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
+// eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
 
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -20,9 +20,7 @@ export const CarsList = () => {
 
   const [cars, setCars] = useState<CarType[]>([]);
 
-  const { selectedCar, chooseCar, clearChosenCar } = useContext(
-    CarContext
-  ) as CarContextType;
+  const { chooseCar } = useContext(CarContext) as CarContextType;
 
   const fetchCars = async () => {
     try {
