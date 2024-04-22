@@ -66,7 +66,7 @@ export const CarsList = () => {
             />
             <h4 style={{ marginBottom: "0px" }}>
               {" "}
-              {car.make} - {car.model} (IT)
+              {car.make} - {car.model}
             </h4>
             <div className="">
               <Chip
