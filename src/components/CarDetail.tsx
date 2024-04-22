@@ -24,7 +24,7 @@ export const CarDetail = () => {
       if (selectedCar) {
         const updatedCar = { ...selectedCar, [property]: value };
         const response = await axios.put(
-          `http://localhost:3000/cars/${selectedCar._id}`,
+          `https://cars-server-1.onrender.com/cars/${selectedCar._id}`,
           updatedCar
         );
         if (response.status === 200) {
@@ -43,7 +43,7 @@ export const CarDetail = () => {
           <div className="medium-img-div">
             <img
               className="medium-img"
-              src={`http://localhost:3000/uploads/${selectedCar.filename}`}
+              src={`https://cars-server-1.onrender.com/uploads/${selectedCar.filename}`}
               alt=""
             />
             <p

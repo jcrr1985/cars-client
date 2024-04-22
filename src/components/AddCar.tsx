@@ -51,7 +51,7 @@ export const AddCar = ({ fetchCars }: AddCarProps) => {
       formData.append("price", data.price);
       formData.append("id", data.id);
 
-      const response = await fetch("http://localhost:3000/cars", {
+      const response = await fetch("https://cars-server-1.onrender.com/cars", {
         method: "POST",
         body: formData,
       });

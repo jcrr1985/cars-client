@@ -24,7 +24,9 @@ export const CarsList = () => {
 
   const fetchCars = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/cars");
+      const response = await axios.get(
+        "https://cars-server-1.onrender.com/cars"
+      );
       const carsFetched: CarType[] = response.data;
       console.log("carsFetched", carsFetched);
       setCars(carsFetched);
@@ -44,7 +46,7 @@ export const CarsList = () => {
 
   const deleteCar = async (id: string) => {
     try {
-      await axios.delete(`http://localhost:3000/cars/${id}`);
+      await axios.delete(`https://cars-server-1.onrender.com/cars/${id}`);
       fetchCars();
     } catch (error) {
       console.error("Error deleting car:", error);
@@ -60,7 +62,7 @@ export const CarsList = () => {
           <div className="card" key={car._id}>
             <img
               className="thumbnail"
-              src={`http://localhost:3000/uploads/${car.filename}`}
+              src={`https://cars-server-1.onrender.com/uploads/${car.filename}`}
               alt=""
             />
             <h4 style={{ marginBottom: "0px" }}>
