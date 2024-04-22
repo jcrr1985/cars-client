@@ -10,7 +10,7 @@ interface AddCarProps {
 }
 
 export const AddCar = ({ fetchCars }: AddCarProps) => {
-  const apiUrl = "http://localhost:3001";
+  const apiUrl = "https://cars-server-1.onrender.com";
 
   type CarType = {
     make: string;

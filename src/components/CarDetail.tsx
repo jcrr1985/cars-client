@@ -8,7 +8,7 @@ import { CarContext } from "../contexts/IcarContext";
 import axios from "axios";
 
 export const CarDetail = () => {
-  const apiUrl = "http://localhost:3001";
+  const apiUrl = "https://cars-server-1.onrender.com";
   const { selectedCar, chooseCar, updateCarInContext } = useContext(CarContext);
   console.log("selectedCar", selectedCar);
 
