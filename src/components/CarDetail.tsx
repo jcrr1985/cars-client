@@ -89,6 +89,10 @@ export const CarDetail = () => {
                   <h3 className="specs"> Price</h3>
                   <p className="specs"> {selectedCar.price}</p>
                 </div>
+                <div>
+                  <h3 className="specs"> Mileage</h3>
+                  <p className="specs"> {selectedCar.mileage}</p>
+                </div>
               </div>
             </div>
           </div>

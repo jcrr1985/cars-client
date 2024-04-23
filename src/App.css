@@ -128,3 +128,9 @@ form {
 .left {
   text-align: left;
 }
+
+.car-grid {
+  div {
+    margin-bottom: 15px;
+  }
+}

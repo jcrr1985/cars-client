@@ -64,10 +64,12 @@ export const CarsList = () => {
               src={`${apiUrl}/uploads/${car.filename}`}
               alt=""
             />
-            <h4 style={{ marginBottom: "0px" }}>
-              {" "}
-              {car.make} - {car.model}
-            </h4>
+            <div>
+              <h4>
+                {" "}
+                {car.make} - {car.model}
+              </h4>
+            </div>
             <div className="">
               <Chip
                 label={car.forSell === "true" ? "For Sale" : "On Hold"}
@@ -75,13 +77,17 @@ export const CarsList = () => {
                 variant="outlined"
               />
             </div>
-            <div style={{ marginBottom: "15px" }}>
-              <p className="year">Year</p>
-              <p className="year">2021-12-07</p>
+            <div>
+              <p className="year">
+                <b>Year:</b> {car.year}
+              </p>
             </div>
-            <div className="">
-              <p>{car.forSell ? "For sell" : "On hold"}</p>
+            <div>
+              <p className="year">
+                <b>Color:</b> {car.color}
+              </p>
             </div>
+
             <div className="btn-container">
               <button
                 className="view-details-btn btn"
