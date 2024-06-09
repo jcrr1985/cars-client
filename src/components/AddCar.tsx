@@ -4,14 +4,13 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { apiUrl } from "../main";
 
 interface AddCarProps {
   fetchCars: () => Promise<void>;
 }
 
 export const AddCar = ({ fetchCars }: AddCarProps) => {
-  const apiUrl = "https://cars-server-1.onrender.com";
-
   type CarType = {
     make: string;
     model: string;

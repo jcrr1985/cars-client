@@ -5,6 +5,8 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
 
+import { apiUrl } from "../main";
+
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -17,7 +19,6 @@ import { CarContext } from "../contexts/IcarContext";
 import { CarContextType } from "../interfaces/IcarContextType";
 
 export const CarsList = () => {
-  const apiUrl = "https://cars-server-1.onrender.com";
   const navigate = useNavigate();
   const [cars, setCars] = useState<CarType[]>([]);
   const { chooseCar } = useContext(CarContext) as CarContextType;

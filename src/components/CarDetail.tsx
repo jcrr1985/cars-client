@@ -6,9 +6,9 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { CarContext } from "../contexts/IcarContext";
 import axios from "axios";
+import { apiUrl } from "../main";
 
 export const CarDetail = () => {
-  const apiUrl = "https://cars-server-1.onrender.com";
   const { selectedCar, chooseCar, updateCarInContext } = useContext(CarContext);
   console.log("selectedCar", selectedCar);
 
