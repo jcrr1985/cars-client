@@ -58,17 +58,6 @@ export const AddCar = ({ fetchCars }: AddCarProps) => {
         method: "POST",
         body: formData,
       });
-
-      if (response.ok) {
-        try {
-          await fetchCars();
-        } catch (error) {
-          console.error("Error fetching cars:", error);
-        }
-        reset();
-      } else {
-        console.log("Failed to create car");
-      }
     } catch (error) {
       console.error("Error creating car:", error);
     }
