@@ -6,7 +6,11 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { apiUrl } from "../main";
 
-export const AddCar = () => {
+interface AddCarProps {
+  fetchCars: () => Promise<void>;
+}
+
+export const AddCar = ({ fetchCars }: AddCarProps) => {
   type CarType = {
     make: string;
     model: string;
@@ -54,6 +58,7 @@ export const AddCar = () => {
         method: "POST",
         body: formData,
       });
+      await fetchCars();
     } catch (error) {
       console.error("Error creating car:", error);
     }
