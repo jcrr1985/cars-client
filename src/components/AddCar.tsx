@@ -54,7 +54,7 @@ export const AddCar = ({ fetchCars }: AddCarProps) => {
       formData.append("id", data.id);
       formData.append("forSell", "true");
 
-      const response = await fetch(`${apiUrl}/cars`, {
+      await fetch(`${apiUrl}/cars`, {
         method: "POST",
         body: formData,
       });
