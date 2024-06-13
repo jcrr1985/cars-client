@@ -14,7 +14,7 @@ export const AddCar = ({ fetchCars }: AddCarProps) => {
   type CarType = {
     make: string;
     model: string;
-    package: string;
+    pkg: string;
     color: string;
     year: string;
     category: string;
@@ -45,7 +45,7 @@ export const AddCar = ({ fetchCars }: AddCarProps) => {
       }
       formData.append("make", data.make);
       formData.append("model", data.model);
-      formData.append("package", data.package);
+      formData.append("pkg", data.pkg);
       formData.append("color", data.color);
       formData.append("year", data.year);
       formData.append("category", data.category);
@@ -209,8 +209,8 @@ export const AddCar = ({ fetchCars }: AddCarProps) => {
                 placeholder="package"
                 className="form-input"
                 type="text"
-                id="package"
-                {...register("package", {})}
+                id="pkg"
+                {...register("pkg", {})}
               />
               <p>{errors.id && errors.id.message}</p>
             </div>
