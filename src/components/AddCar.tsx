@@ -6,11 +6,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { apiUrl } from "../main";
 
-interface AddCarProps {
-  fetchCars: () => Promise<void>;
-}
-
-export const AddCar = ({ fetchCars }: AddCarProps) => {
+export const AddCar = () => {
   type CarType = {
     make: string;
     model: string;
@@ -25,7 +21,7 @@ export const AddCar = ({ fetchCars }: AddCarProps) => {
     forSell: string;
   };
 
-  const { register, handleSubmit, formState, reset } = useForm<CarType>();
+  const { register, handleSubmit, formState } = useForm<CarType>();
 
   const { errors } = formState;
 
