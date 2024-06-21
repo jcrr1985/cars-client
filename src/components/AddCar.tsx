@@ -43,6 +43,7 @@ export const AddCar = ({ fetchCars }: AddCarProps) => {
       if (selectedImage) {
         formData.append("image", selectedImage);
       }
+
       formData.append("make", data.make);
       formData.append("model", data.model);
       formData.append("pkg", data.pkg);
@@ -51,8 +52,7 @@ export const AddCar = ({ fetchCars }: AddCarProps) => {
       formData.append("category", data.category);
       formData.append("mileage", data.mileage);
       formData.append("price", data.price);
-      formData.append("id", data.id);
-      formData.append("forSell", "true");
+      formData.append("forSell", data.forSell);
 
       await fetch(`${apiUrl}/cars`, {
         method: "POST",

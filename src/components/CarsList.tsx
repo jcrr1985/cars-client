@@ -53,6 +53,12 @@ export const CarsList = () => {
     }
   };
 
+  const connectionString = "selaskitest1";
+
+  const containerName = "testcontainerone";
+
+  console.log(connectionString, containerName);
+
   return (
     <div>
       <AddCar fetchCars={fetchCars} />
@@ -62,7 +68,7 @@ export const CarsList = () => {
           <div className="card" key={car._id}>
             <img
               className="thumbnail"
-              src={`${apiUrl}/uploads/${car.filename}`}
+              src={`https://${connectionString}.blob.core.windows.net/${containerName}/${car._id}/${car.filename}`}
               alt=""
             />
             <div>
