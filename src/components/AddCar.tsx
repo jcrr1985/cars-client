@@ -73,7 +73,9 @@ export const AddCar = ({ fetchCars }: AddCarProps) => {
           padding: "10px",
         }}
       >
-        <legend>Add New Car</legend>
+        <legend style={{ backgroundColor: "slateblue", color: "white" }}>
+          Add New Car
+        </legend>
         <form
           style={{ display: "flex", alignItems: "center" }}
           onSubmit={handleSubmit(onSubmit)}
