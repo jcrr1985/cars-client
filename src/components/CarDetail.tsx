@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { CarContext } from "../contexts/IcarContext";
 import axios from "axios";
 import { apiUrl } from "../main";
+import { connectionString, containerName } from "../config/config";
 
 export const CarDetail = () => {
   const { selectedCar, chooseCar, updateCarInContext } = useContext(CarContext);
@@ -43,7 +44,7 @@ export const CarDetail = () => {
       console.error("Error updating car:", error);
     }
   };
-
+  selectedCar;
   return (
     <>
       {selectedCar && (
@@ -51,7 +52,7 @@ export const CarDetail = () => {
           <div className="medium-img-div">
             <img
               className="medium-img"
-              src={`${apiUrl}/uploads/${selectedCar.filename}`}
+              src={`https://${connectionString}.blob.core.windows.net/${containerName}/${selectedCar._id}/${selectedCar.filename}`}
               alt=""
             />
             <p

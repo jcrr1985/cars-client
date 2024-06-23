@@ -17,6 +17,7 @@ import { AddCar } from "./AddCar";
 import { CarContext } from "../contexts/IcarContext";
 
 import { CarContextType } from "../interfaces/IcarContextType";
+import { connectionString, containerName } from "../config/config";
 
 export const CarsList = () => {
   const navigate = useNavigate();
@@ -52,10 +53,6 @@ export const CarsList = () => {
       console.error("Error deleting car:", error);
     }
   };
-
-  const connectionString = "selaskitest1";
-
-  const containerName = "testcontainerone";
 
   console.log(connectionString, containerName);
 
