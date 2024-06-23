@@ -1,9 +1,20 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
 #root {
-  max-width: 1280px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
+
+
 
 .addCar-input {
   width: fit-content;
@@ -20,6 +31,9 @@
 
 form {
   display: inline-flex;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .form-input {
@@ -28,6 +42,12 @@ form {
   background-color: #dce4f1;
   margin: 0.5em;
   border: none;
+}
+
+button.submit-btn {
+  margin: 1rem 0;
+  background: #06051a;
+  color: #fff;
 }
 
 .card {
@@ -73,6 +93,8 @@ form {
   gap: 25px;
 }
 
+
+
 .parent-div {
   margin-top: 7rem;
 }
@@ -94,6 +116,8 @@ form {
 .detail-section {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+
   margin: 1rem 0;
   gap: 4rem;
 }
@@ -133,4 +157,17 @@ form {
   div {
     margin-bottom: 15px;
   }
+}
+
+@media (max-width: 768px) {
+  .detail-section {
+    flex-direction: column;
+  }
+
+  .specs-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
 }

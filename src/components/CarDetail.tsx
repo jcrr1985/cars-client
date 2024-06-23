@@ -50,6 +50,9 @@ export const CarDetail = () => {
       {selectedCar && (
         <div className="detail-section">
           <div className="medium-img-div">
+            <h2 style={{ marginTop: "0" }}>
+              {selectedCar.make} - {selectedCar.model}
+            </h2>
             <img
               className="medium-img"
               src={`https://${connectionString}.blob.core.windows.net/${containerName}/${selectedCar._id}/${selectedCar.filename}`}
@@ -67,33 +70,27 @@ export const CarDetail = () => {
             </p>
           </div>
 
-          <div style={{ display: "flex" }}>
-            <div className="left">
-              <div className="specs-container">
-                <h2 className="" style={{ marginBottom: "0px", marginTop: 0 }}>
-                  {selectedCar.make} - {selectedCar.model}
-                </h2>
-                <br />
-                <div>
-                  <h3 className="specs"> Year</h3>
-                  <p className="specs"> {selectedCar.year}</p>
-                </div>
-                <div>
-                  <h3 className="specs"> Category</h3>
-                  <p className="specs"> {selectedCar.category}</p>
-                </div>
-                <div>
-                  <h3 className="specs"> Color</h3>
-                  <p className="specs"> {selectedCar.color}</p>
-                </div>
-                <div>
-                  <h3 className="specs"> Price</h3>
-                  <p className="specs"> {selectedCar.price}</p>
-                </div>
-                <div>
-                  <h3 className="specs"> Mileage</h3>
-                  <p className="specs"> {selectedCar.mileage}</p>
-                </div>
+          <div className="left">
+            <div className="specs-container">
+              <div>
+                <h3 className="specs"> Year</h3>
+                <p className="specs"> {selectedCar.year}</p>
+              </div>
+              <div>
+                <h3 className="specs"> Category</h3>
+                <p className="specs"> {selectedCar.category}</p>
+              </div>
+              <div>
+                <h3 className="specs"> Color</h3>
+                <p className="specs"> {selectedCar.color}</p>
+              </div>
+              <div>
+                <h3 className="specs"> Price</h3>
+                <p className="specs"> {selectedCar.price}</p>
+              </div>
+              <div>
+                <h3 className="specs"> Mileage</h3>
+                <p className="specs"> {selectedCar.mileage}</p>
               </div>
             </div>
           </div>

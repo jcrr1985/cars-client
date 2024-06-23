@@ -76,11 +76,7 @@ export const AddCar = ({ fetchCars }: AddCarProps) => {
         <legend style={{ backgroundColor: "slateblue", color: "white" }}>
           Add New Car
         </legend>
-        <form
-          style={{ display: "flex", alignItems: "center" }}
-          onSubmit={handleSubmit(onSubmit)}
-          noValidate
-        >
+        <form onSubmit={handleSubmit(onSubmit)} noValidate>
           <div className="form-wrapper">
             <div className="addCar-input">
               <input
@@ -216,7 +212,7 @@ export const AddCar = ({ fetchCars }: AddCarProps) => {
               />
             </div>
           </div>
-          <button>Submit</button>
+          <button className="submit-btn">Submit</button>
         </form>
       </fieldset>
     </>
