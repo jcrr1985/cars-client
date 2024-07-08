@@ -56,7 +56,7 @@ export const AddCar = ({ fetchCars }: AddCarProps) => {
 
       await fetch(`${apiUrl}/cars`, {
         method: "POST",
-        mode: "no-cors",
+        mode: "cors",
         headers: {
           "Content-Type": "application/json",
         },
