@@ -53,8 +53,7 @@ export const CarsList = () => {
       console.error("Error deleting car:", error);
     }
   };
-
-  console.log(connectionString, containerName);
+  const bucketName = "namekusein";
 
   return (
     <div>
@@ -65,7 +64,7 @@ export const CarsList = () => {
           <div className="card" key={car._id}>
             <img
               className="thumbnail"
-              src={`https://${connectionString}.blob.core.windows.net/${containerName}/${car._id}/${car.filename}`}
+              src={`https://storage.googleapis.com/${bucketName}/${car.filename}`}
               alt=""
             />
             <div>
