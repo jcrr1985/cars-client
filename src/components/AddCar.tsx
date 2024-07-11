@@ -41,7 +41,7 @@ export const AddCar = ({ fetchCars }: AddCarProps) => {
     try {
       const formData = new FormData();
       if (selectedImage) {
-        formData.append("image", selectedImage);
+        formData.append("file", selectedImage);
       }
 
       formData.append("make", data.make);
