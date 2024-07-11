@@ -43,6 +43,7 @@ export const AddCar = ({ fetchCars }: AddCarProps) => {
       if (selectedImage) {
         formData.append("file", selectedImage);
       }
+      console.log(formData.get("image"));
 
       formData.append("make", data.make);
       formData.append("model", data.model);
@@ -54,10 +55,9 @@ export const AddCar = ({ fetchCars }: AddCarProps) => {
       formData.append("price", data.price);
       formData.append("forSell", data.forSell);
 
-      await fetch(`${apiUrl}/cars`, {
+      await fetch(`https://rth-server.vercel.app/cars`, {
         method: "POST",
         mode: "cors",
-
         body: formData,
       });
       await fetchCars();
