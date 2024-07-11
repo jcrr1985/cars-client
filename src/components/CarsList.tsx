@@ -17,7 +17,6 @@ import { AddCar } from "./AddCar";
 import { CarContext } from "../contexts/IcarContext";
 
 import { CarContextType } from "../interfaces/IcarContextType";
-import { connectionString, containerName } from "../config/config";
 
 export const CarsList = () => {
   const navigate = useNavigate();
