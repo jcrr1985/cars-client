@@ -4,7 +4,7 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { apiUrl } from "../main";
+import { apiUrl } from "./../main";
 
 interface AddCarProps {
   fetchCars: () => Promise<void>;
@@ -55,7 +55,7 @@ export const AddCar = ({ fetchCars }: AddCarProps) => {
       formData.append("price", data.price);
       formData.append("forSell", data.forSell);
 
-      await fetch(`https://rth-server.vercel.app/cars`, {
+      await fetch(`${apiUrl}/cars`, {
         method: "POST",
         mode: "cors",
         body: formData,
